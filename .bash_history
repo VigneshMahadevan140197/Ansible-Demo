@@ -423,3 +423,59 @@ ls
 ansible playbook -i inventory.ini first-playbook.yaml
 clear
 ansible-playbook -i inventory.ini first-playbook.yaml
+clear
+rmdir -r ansible-zero-to-hero
+rmdir  ansible-zero-to-hero
+rm -rf ansible-zero-to-hero
+ls
+git add .
+git init
+git add .
+git commit -m "initial commit"
+git config --global user.email "dhanushm783@gmail.com"
+git config --global user.name "Vignesh Mahadevan"
+git commit -m "initial commit"
+git push origin main
+git push -u origin main
+git branch -M main
+git push -u origin main
+Vignesh@140197
+git push -u origin main
+exit
+clear
+ls
+rm nodeHealth.sh
+ls
+clear
+history
+vi first-playbook.yaml
+cat first-playbook.yaml
+clear
+ansible-galaxy role -h
+ansible-galaxy role install bsmeding.docker
+ls  ~/.ansible/roles
+ls ~/.ansible/roles
+clear
+vi docker-playbook.yaml
+ansible-playbook -i inventory.ini docker-playbook.yaml
+vi inventory.ini
+ansible-playbook -i inventory.ini docker-playbook.yaml
+clear
+ansible-playbook -i inventory.ini docker-playbook.yaml
+clear
+history
+cat docker-playbook.yaml
+clear
+git remote add origin https://github.com/VigneshMahadevan140197/Ansible-Demo.git
+git init
+git remote add origin https://github.com/VigneshMahadevan140197/Ansible-Demo.git
+ls
+git remote -v
+rm ansible-zero-to-hero
+rmdir 
+rmdir ansible-zero-to-hero
+rmdir -rf ansible-zero-to-hero
+rmdir --help
+rmdir -p ansible-zero-to-hero
+ls
+clear
