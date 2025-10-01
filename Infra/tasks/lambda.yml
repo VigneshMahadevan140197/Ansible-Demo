@@ -1,0 +1,13 @@
+
+- name: Create minimal Lambda functions
+  amazon.aws.lambda:
+    state: present
+    name: "{{ item.name }}"
+    runtime: python3.9
+    role: "{{ lambda_role_arn }}"
+    handler: index.handler
+    src: "{{ role_path }}/files/minimal_lambda.zip"
+    environment_variables: "{{ item.env_vars }}"
+    region: "{{ aws_region }}"
+  loop: "{{ lambda_functions }}"
+  delegate_to: localhost

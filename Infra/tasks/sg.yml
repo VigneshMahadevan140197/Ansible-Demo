@@ -1,0 +1,18 @@
+
+- name: Create security group
+  amazon.aws.ec2_security_group:
+    name: "{{ security_group_name }}"
+    description: "{{ security_group_description }}"
+    region: "{{ aws_region }}"
+    rules:
+      - proto: "{{ item.proto }}"
+        from_port: "{{ item.from_port }}"
+        to_port: "{{ item.to_port }}"
+        cidr_ip: "{{ item.cidr_ip }}"
+    state: present
+  loop: "{{ security_group_rules }}"
+  register: sg_result
+
+- name: Debug SG ID
+  debug:
+    var: sg_result.group_id

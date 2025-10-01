@@ -1,0 +1,17 @@
+---
+# tasks file for Infra
+
+- name: Create lambda function
+  include_tasks: lambda.yml
+
+- name: Launch EC2 instance
+  include_tasks: ec2.yml
+
+- name: Create S3 bucket
+  include_tasks: s3.yml
+
+- name: Create VPC
+  include_tasks: vpc.yml
+
+- name: Create Security Group
+  include_tasks: sg.yml

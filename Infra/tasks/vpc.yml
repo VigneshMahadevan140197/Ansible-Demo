@@ -1,0 +1,38 @@
+
+- name: Create VPC
+  amazon.aws.ec2_vpc_net:
+    name: "Ansible-VPC"
+    cidr_block: "10.0.0.0/16"
+    region: "{{ aws_region }}"
+    state: present
+  register: vpc_info
+
+- name: Debug VPC output
+  debug:
+    var: vpc_info
+
+- name: Set vpc_id fact when available
+  set_fact:
+    vpc_id: "{{ vpc_info.vpc.id | default(vpc_info.vpc_id | default('')) }}"
+
+- name: Warn that subnet creation is skipped in check mode
+  debug:
+    msg: "Skipping subnet creation because no VPC id was returned (likely running with --check)"
+  when:
+    - ansible_check_mode
+    - vpc_id == ''
+
+- name: Create Subnet (skipped if no vpc_id, e.g. in --check)
+  amazon.aws.ec2_vpc_subnet:
+    vpc_id: "{{ vpc_id }}"
+    cidr: "10.0.1.0/24"
+    region: "{{ aws_region }}"
+    az: "{{ aws_region }}a"
+    state: present
+  register: subnet_info
+  when: vpc_id != ''
+
+- name: Debug subnet_info if created
+  debug:
+    var: subnet_info
+  when: subnet_info is defined
