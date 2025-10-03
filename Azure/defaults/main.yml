@@ -1,0 +1,13 @@
+---
+# defaults file for Azure
+resource_group: myResourceGroup
+location: eastus
+vm_name: my-virtual-machine
+vm_size: Standard_B1s
+admin_username: azureuser
+admin_password: "SecureP@ssw0rd!"
+image:
+  offer: UbuntuServer
+  publisher: Canonical
+  sku: 18.04-LTS
+  version: latest

@@ -1,0 +1,7 @@
+
+- name: Create Azure Virual Machine
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  roles:
+    - Azure
